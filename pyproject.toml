@@ -1,0 +1,51 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "levant"
+version = "0.1.0"
+description = "Python Selenium abstraction library"
+license = "MPL-2.0"
+authors = [
+    "Lawrence Millar-Madigan <lawrencem99@gmail.com>"
+]
+readme = "README.md"
+homepage = "https://github.com/Lawrencemm/levant"
+repository = "https://github.com/Lawrencemm/levant"
+keywords = [
+    "pytest",
+    "selenium",
+    "django"
+]
+classifiers = [
+    "Intended Audience :: Developers",
+    "Operating System :: POSIX",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: MacOS :: MacOS X",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Utilities",
+]
+packages = [
+    { include = "levant", from = "." },
+]
+include = [
+    { path = "testing", format = "sdist" },
+    { path = "docs", format = "sdist" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+pytest = "^6.0.0"
+pytest-selenium = "^3.0.0"
+
+[tool.poetry.dev-dependencies]
+black = "^22.1.0"
+flake8 = "^4.0.1"
+tox = "^3.24.5"
+pytest-xdist = "^2.4.0"
+django = "^2.0.0"
+
+[tool.poetry.plugins.pytest11]
+levant = "levant.pytest_plugin"
